@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/v1/recipes")
 public class RecipeRestController {
 
@@ -17,6 +18,11 @@ public class RecipeRestController {
     @GetMapping("")
     public List<Recipe> listRecipes() {
         return jpaRepository.findAll();
+    }
+
+    @GetMapping("/hello")
+    public String helloWorld() {
+        return "Hello, World!";
     }
 
     @GetMapping("/{id}")
